@@ -1,0 +1,89 @@
+/* registro.css */
+
+.formulario-container {
+    background-color: #f8fcf2;
+    color: #000000;
+    padding: 30px;
+    border-radius: 18px;
+    width: 500px; /* Cambiado el ancho a 400px para que coincida con el formulario */
+    margin: 0 auto 30px; /* Centrado horizontal y espacio inferior */
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para el formulario */
+#formulario ul {
+    list-style: none; /* Quita los estilos de lista predeterminados */
+    padding: 0;
+}
+
+#formulario li {
+    margin-bottom: 20px; /* Espacio entre elementos del formulario */
+}
+
+#formulario label {
+    display: block; /* Hace que las etiquetas estén en una línea separada */
+    margin-bottom: 5px; /* Espacio entre etiquetas y campos de entrada */
+}
+
+#formulario input[type="text"],
+#formulario input[type="number"],
+#formulario input[type="email"],
+
+#formulario input[type="password"] {
+    border: none;
+    border-bottom: 2px solid rgb(44, 140, 81);
+    background-color: transparent;
+    color: #3d3c3c; /* Color de texto más oscuro para una mejor legibilidad */
+    padding: 5px 0;
+    width: 100%;
+    outline: none;
+}
+
+#formulario input[type="submit"] {
+    background-color: rgb(21, 175, 104);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#formulario input[type="submit"]:hover {
+    background-color: #21cd749b;
+}
+
+/* Estilo de la tabla */
+#tablaPersonas {
+    width: 80%; /* Reducir el ancho de la tabla al 80% del contenedor */
+    max-width: 600px; /* Establecer un ancho máximo para mantener la legibilidad en pantallas grandes */
+    margin: 0 auto; /* Centrar la tabla horizontalmente */
+    border-collapse: collapse;
+    margin-top: 20px; /* Añadir margen superior para separar la tabla del formulario */
+    
+}
+
+#tablaPersonas th, #tablaPersonas td {
+    border: 1px solid #000; /* Establecer borde de 1px sólido negro */
+    padding: 8px;
+    text-align: left;
+    padding: 8px; /* Añadir espacio interno */
+    text-align: center; /* Centrar el texto dentro de las celdas */
+}
+
+#tablaPersonas th {
+    background-color: #a7a8a8d8; /* Cambiar el color de fondo */
+    color: #0a0a0a; /* Cambiar el color del texto a blanco */
+    padding: 10px; /* Añadir espacio interno */
+    font-family: Arial, sans-serif; /* Cambiar la fuente */
+    text-align: center; /* Alineación del texto al centro */
+}
+
+caption {
+    background-color: #ffffff; /* Color de fondo */
+    color: #090909; /* Color de texto */
+    padding: 10px; /* Espaciado interno */
+    font-size: 30px; /* Tamaño del texto */
+    text-align: center; /* Alineación del texto al centro */
+    font-weight: bold;/* Hacer el texto en negrita */
+    
+}
