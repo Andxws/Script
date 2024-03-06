@@ -1,7 +1,8 @@
 <?php
 require_once("models/registro.php");
 
-class registroController {
+class registroController
+{
 
     private $model;
 
@@ -14,7 +15,7 @@ class registroController {
     public function index()
     {
         // Obtener los registros
-        $registros = $this->model->mostrar("registros");
+        $registros = $this->model->mostrar("registros", ""); // Aquí debes pasar la condición adecuada
 
         // Asignar los registros a la variable $dato
         $dato = array("registros" => $registros);
@@ -22,6 +23,7 @@ class registroController {
         // Incluir la vista principal
         require_once("views/index.php");
     }
+
 
     // Mostrar la vista para insertar un nuevo registro
     public function nuevo()
@@ -72,6 +74,4 @@ class registroController {
 
         // Incluir
     }
-
 }
-?>

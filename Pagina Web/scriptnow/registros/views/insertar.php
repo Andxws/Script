@@ -18,7 +18,8 @@
     <div class="container">
         <h1>NUEVO</h1>
         <hr>
-        <form action="guardar.php" method="post"> <div class="form-group">
+        <form action="views/index.php" method="post">    
+            <div class="form-group">
                 <label>Documento Identidad</label>
                 <input type="text" name="documento_identidad" value="" class="form-control" placeholder="Ingrese su documento de identidad" data-validacion-tipo="requerido|min:3" />
             </div>
