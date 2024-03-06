@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personas</title>
+    <title>Registros</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -15,9 +15,9 @@
 
 <body>
     <div class="container">
-        <h1 class="page-header">Personas</h1>
+        <h1 class="page-header">Registros</h1>
         <div class="well well-sm text-right">
-            <a class="btn btn-primary" href="?m=nuevo">Agregar Persona</a>
+            <a class="btn btn-primary" href="?m=nuevo">Agregar Registro</a>
         </div>
         <table class="table table-striped">
             <thead>
@@ -28,28 +28,27 @@
                     <th>Edad</th>
                     <th>Correo Electronico</th>
                     <th>Usuario</th>
+                    <th>Contraseña</th>
                     <th>Acción</th>
                     <th></th>
                 </tr>
             </thead>
-
             <tbody>
-                <?php if (!empty($dato['registros'])) : ?>
-                    <?php foreach ($registros as $registros) : ?>
+                <?php if (!empty($registros)) : ?>
+                    <?php foreach ($registros as $registro) : ?>
                         <tr>
-                            <td><?php echo $registros["documento_identidad"]; ?></td>
-                            <td><?php echo $registros["nombre"]; ?></td>
-                            <td><?php echo $registros["apellido"]; ?></td>
-                            <td><?php echo $registros["edad"]; ?></td>
-                            <td><?php echo $registros["email"]; ?></td>
-                            <td><?php echo $registros["usuario"]; ?></td>
-                            <td>
-                                <a href="?m=editar&id=<?php echo $registro["id"]; ?>">Editar</a>
-                            </td>
-                            <td>
-                                <a data-toggle="modal" data-target="#eliminarpersona" href="?m=eliminar&id=<?php echo $registros["id"]; ?>">Eliminar</a>
-                            </td>
+                            <td><?php echo $registro["documento_identidad"]; ?></td>
+                            <td><?php echo $registro["nombre"]; ?></td>
+                            <td><?php echo $registro["apellido"]; ?></td>
+                            <td><?php echo $registro["edad"]; ?></td>
+                            <td><?php echo $registro["email"]; ?></td>
+                            <td><?php echo $registro["usuario"]; ?></td>
+                            <td><?php echo $registro["contrasena"]; ?></td>
+
+                            <td><i class="glyphicon glyphicon-edit"><a href="?m=editar&id=<?php echo $registro["id"]; ?>"> Editar</a></i></td>
+                            <td><i class="glyphicon glyphicon-remove"><a data-toggle="modal" data-target="#eliminarpersona" href="?m=eliminar&id=<?php echo $registro["id"]; ?>"> Eliminar</a></i></td>
                         </tr>
+                        <?php require_once("modal.php"); ?>
                     <?php endforeach; ?>
                 <?php else : ?>
                     <tr>
@@ -57,6 +56,7 @@
                     </tr>
                 <?php endif; ?>
             </tbody>
+
 
         </table>
     </div>

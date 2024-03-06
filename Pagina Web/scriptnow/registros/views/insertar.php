@@ -16,38 +16,46 @@
 
 <body>
     <div class="container">
-        <h1>NUEVO</h1>
+        <h1>Ingresar Nuevo Registro</h1>
         <hr>
-        <form action="views/index.php" method="post">    
-            <div class="form-group">
-                <label>Documento Identidad</label>
-                <input type="text" name="documento_identidad" value="" class="form-control" placeholder="Ingrese su documento de identidad" data-validacion-tipo="requerido|min:3" />
-            </div>
-            <div class="form-group">
-                <label>Nombre</label>
-                <input type="text" name="nombre" value="" class="form-control" placeholder="Ingrese sus nombres" data-validacion-tipo="requerido|min:3" /> </div>
-            <div class="form-group">
-                <label>Apellido</label>
-                <input type="text" name="apellido" value="" class="form-control" placeholder="Ingrese sus apellidos" data-validacion-tipo="requerido|min:3" /> </div>
-            <div class="form-group">
-                <label>Edad</label>
-                <input type="number" name="edad" min="1" value="" class="form-control" placeholder="Ingrese su edad" data-validacion-tipo="requerido|numero" /> </div>
-            <div class="form-group">
-                <label>Email</label>
-                <input type="email" name="email" value="" class="form-control" placeholder="Ingrese su email" data-validacion-tipo="requerido|email" /> </div>
-            <div class="form-group">
-                <label>Usuario</label>
-                <input type="text" name="usuario" value="" class="form-control" placeholder="Ingrese su nombre de usuario" data-validacion-tipo="requerido|min:3" /> </div>
-            <div class="form-group">
-                <label>Contraseña</label>
-                <input type="password" name="contrasena" value="" class="form-control" placeholder="Ingrese su contraseña" data-validacion-tipo="requerido|min:8" /> </div>
+        <form action="?m=update" method="POST">
+            <?php if (!empty($datos) && is_array($datos)) : ?>
+                <?php foreach ($datos as $value) : ?>
+                    <div class="form-group">
+                        <label>Documento Identidad</label>
+                        <input readonly type="text" name="documento_identidad" value="<?php echo $value['documento_identidad'] ?>" class="form-control" placeholder="Ingrese su número de Identificación" data-validacion-tipo="requerido|min:3" />
+                    </div>
+                    <div class="form-group">
+                        <label>Nombre</label>
+                        <input type="text" name="nombre" value="<?php echo $value['nombre'] ?>" class="form-control" placeholder="Ingrese su Nombre" data-validacion-tipo="requerido|min:7" />
+                    </div>
+                    <div class="form-group">
+                        <label>Apellido</label>
+                        <input type="text" name="apellido" value="<?php echo $value['apellido'] ?>" class="form-control" placeholder="Ingrese sus Apellidos" data-validacion-tipo="requerido|date" />
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="text" name="email" value="<?php echo $value['email'] ?>" class="form-control" placeholder="Ingrese su Email" data-validacion-tipo="requerido|min:8" />
+                    </div>
+                    <div class="form-group">
+                        <label>Usuario</label>
+                        <input type="text" name="usuario" value="<?php echo $value['usuario'] ?>" class="form-control" placeholder="Ingrese su Usuario" data-validacion-tipo="requerido|min:8" />
+                    </div>
+                    <div class="form-group">
+                        <label>Contraseña</label>
+                        <input type="text" name="contrasena" value="<?php echo $value['contrasena'] ?>" class="form-control" placeholder="Ingrese su Contraseña" data-validacion-tipo="requerido|min:8" />
+                    </div>
+                    <input type="hidden" name="id" value="<?php echo $value['id'] ?>">
+                <?php endforeach ?>
+            <?php else : ?>
+                <p>No hay datos disponibles.</p>
+            <?php endif ?>
             <hr />
             <div class="text-right">
-                <button class="btn btn-success">Guardar</button>
+                <button type="submit" class="btn btn-success">Guardar</button>
             </div>
         </form>
         <hr />
-
     </div>
 </body>
 
