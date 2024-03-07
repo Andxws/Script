@@ -46,7 +46,8 @@
                             <td><?php echo $registro["contrasena"]; ?></td>
 
                             <td><i class="glyphicon glyphicon-edit"><a href="?m=editar&id=<?php echo $registro["id"]; ?>"> Editar</a></i></td>
-                            <td><i class="glyphicon glyphicon-remove"><a data-toggle="modal" data-target="#eliminarpersona" href="?m=eliminar&id=<?php echo $registro["id"]; ?>"> Eliminar</a></i></td>
+                            <td><i class="glyphicon glyphicon-remove"><a href="?m=eliminar&id=<?php echo $registro['id']; ?>" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que quieres eliminar este registro?')">Eliminar</a></i></td>
+
                         </tr>
                         <?php require_once("modal.php"); ?>
                     <?php endforeach; ?>

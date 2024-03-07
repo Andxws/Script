@@ -1,7 +1,7 @@
 <!-- Modal -->
 
 <form action="">
-  <div class="modal fade" id="eliminarpersona " tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="eliminarpersona" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -20,7 +20,7 @@
 
         <div class="modal-footer">
           <button type="submit" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-          <button type="submit" class="btn btn-primary">Eliminar</button>
+          <button type="button" class="btn btn-primary" id="btnEliminar">Eliminar</button>
         </div>
       </div>
     </div>

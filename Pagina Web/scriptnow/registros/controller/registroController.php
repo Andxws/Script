@@ -85,17 +85,23 @@ class registroController
     }
     public function update()
     {
+        // Obtener los valores del formulario
         $id = $_POST['id'];
         $documento_identidad = $_POST['documento_identidad'];
         $nombre = $_POST['nombre'];
-        // Obtener los valores restantes de los campos del formulario
-        // Similarmente como hiciste con documento_identidad y nombre
+        $apellido = $_POST['apellido'];
+        $email = $_POST['email'];
+        $usuario = $_POST['usuario'];
+        $contrasena = $_POST['contrasena'];
 
         // Preparar los datos actualizados
         $data = [
             "documento_identidad" => $documento_identidad,
             "nombre" => $nombre,
-            // Resto de los campos
+            "apellido" => $apellido,
+            "email" => $email,
+            "usuario" => $usuario,
+            "contrasena" => $contrasena
         ];
 
         // Construir la condición para la actualización
@@ -108,11 +114,12 @@ class registroController
         header("location: index.php");
     }
 
+
     public function eliminar()
     {
         // Verificar si se proporcionó un ID para eliminar
-        if (isset($_REQUEST['id'])) {
-            $id = $_REQUEST['id'];
+        if (isset($_GET['id'])) { // Cambio $_REQUEST a $_GET
+            $id = $_GET['id']; // Cambio $_REQUEST a $_GET
 
             // Construir la condición para la eliminación
             $condicion = "id=" . $id;
