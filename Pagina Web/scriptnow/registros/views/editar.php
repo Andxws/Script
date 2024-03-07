@@ -30,7 +30,7 @@
     <div class="container">
         <h1>Editar Registro</h1>
         <hr>
-        <form action="?m=editar" method="POST">
+        <form action="?m=update" method="POST">
             <?php foreach ($registro as $v) : ?>
                 <div class="form-group">
                     <label>Documento Identidad</label>
@@ -54,20 +54,15 @@
                 </div>
                 <div class="form-group">
                     <label>Contraseña</label>
-                    <div class="input-group">
-                        <input id="contrasena" type="password" name="contrasena" value="<?php echo $v['contrasena'] ?>" class="form-control" placeholder="Ingrese su Contraseña" data-validacion-tipo="requerido|min:7" />
-                        <div class="input-group-btn">
-                            <button type="button" class="btn btn-default" onclick="togglePassword()">
-                                <i class="glyphicon glyphicon-eye-open"></i>
-                            </button>
-                        </div>
-                    </div>
+                    <input id="contrasena" type="password" name="contrasena" value="<?php echo $v['contrasena'] ?>" class="form-control" placeholder="Ingrese su Contraseña" data-validacion-tipo="requerido|min:7" />
                 </div>
 
                 <input type="hidden" name="id" value="<?php echo $v['id'] ?>">
                 <input type="hidden" name="m" value="update">
+                
                 <hr />
                 <div class="text-right">
+
                     <button class="btn btn-success">Guardar</button>
                 </div>
             <?php endforeach ?>

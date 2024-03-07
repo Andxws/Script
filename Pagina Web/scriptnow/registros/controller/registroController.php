@@ -26,7 +26,7 @@ class registroController
     public function nuevo()
     {
         // Pasar los datos a la vista
-        require_once("views/editar.php");
+        require_once("views/insertar.php");
     }
 
     // Insertar un nuevo registro
@@ -59,17 +59,29 @@ class registroController
     // Mostrar la vista para editar un registro
     public function editar()
     {
-        // Obtener el ID del registro a editar
-        $id = filter_var($_REQUEST['id'], FILTER_SANITIZE_NUMBER_INT);
+        // Verificar si se proporcionó un ID para editar
+        if (isset($_REQUEST['id'])) {
+            // Obtener el ID del registro a editar
+            $id = filter_var($_REQUEST['id'], FILTER_SANITIZE_NUMBER_INT);
 
-        // Obtener el registro de la base de datos
-        $registro = $this->model->mostrar("registros", "id = $id");
+            // Obtener el registro de la base de datos
+            $registro = $this->model->mostrar("registros", "id = $id");
 
-        // Pasar los datos del registro a la vista
-        $dato = array("registro" => $registro);
+            // Verificar si se encontró un registro con el ID especificado
+            if ($registro) {
+                // Pasar los datos del registro a la vista
+                $dato = array("registro" => $registro);
 
-        // Incluir la vista para editar el registro y pasar los datos del registro
-        require_once("views/editar.php");
+                // Incluir la vista para editar el registro y pasar los datos del registro
+                require_once("views/editar.php");
+            } else {
+                // Manejar el caso en que no se encontró ningún registro con el ID especificado
+                echo "No se encontró ningún registro con el ID especificado.";
+            }
+        } else {
+            // Manejar el caso en que no se proporcionó un ID válido
+            echo "ID de registro no válido.";
+        }
     }
     public function update()
     {
@@ -97,22 +109,22 @@ class registroController
     }
 
     public function eliminar()
-{
-    // Verificar si se proporcionó un ID para eliminar
-    if(isset($_REQUEST['id'])) {
-        $id = $_REQUEST['id'];
-        
-        // Construir la condición para la eliminación
-        $condicion = "id=" . $id;
-        
-        // Llamar al método eliminar del modelo
-        $this->model->eliminar("registros", $condicion);
-        
-        // Redirigir a la página principal después de eliminar el registro
-        header("location: index.php");
-    } else {
-        // Manejar el caso en que no se proporcionó un ID válido
-        echo "ID de registro no válido.";
+    {
+        // Verificar si se proporcionó un ID para eliminar
+        if (isset($_REQUEST['id'])) {
+            $id = $_REQUEST['id'];
+
+            // Construir la condición para la eliminación
+            $condicion = "id=" . $id;
+
+            // Llamar al método eliminar del modelo
+            $this->model->eliminar("registros", $condicion);
+
+            // Redirigir a la página principal después de eliminar el registro
+            header("location: index.php");
+        } else {
+            // Manejar el caso en que no se proporcionó un ID válido
+            echo "ID de registro no válido.";
+        }
     }
-}
 }

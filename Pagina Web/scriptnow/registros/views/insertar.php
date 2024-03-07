@@ -18,38 +18,37 @@
     <div class="container">
         <h1>Ingresar Nuevo Registro</h1>
         <hr>
-        <form action="?m=update" method="POST">
-            <?php if (!empty($datos) && is_array($datos)) : ?>
-                <?php foreach ($datos as $value) : ?>
-                    <div class="form-group">
-                        <label>Documento Identidad</label>
-                        <input readonly type="text" name="documento_identidad" value="<?php echo $value['documento_identidad'] ?>" class="form-control" placeholder="Ingrese su número de Identificación" data-validacion-tipo="requerido|min:3" />
-                    </div>
-                    <div class="form-group">
-                        <label>Nombre</label>
-                        <input type="text" name="nombre" value="<?php echo $value['nombre'] ?>" class="form-control" placeholder="Ingrese su Nombre" data-validacion-tipo="requerido|min:7" />
-                    </div>
-                    <div class="form-group">
-                        <label>Apellido</label>
-                        <input type="text" name="apellido" value="<?php echo $value['apellido'] ?>" class="form-control" placeholder="Ingrese sus Apellidos" data-validacion-tipo="requerido|date" />
-                    </div>
-                    <div class="form-group">
-                        <label>Email</label>
-                        <input type="text" name="email" value="<?php echo $value['email'] ?>" class="form-control" placeholder="Ingrese su Email" data-validacion-tipo="requerido|min:8" />
-                    </div>
-                    <div class="form-group">
-                        <label>Usuario</label>
-                        <input type="text" name="usuario" value="<?php echo $value['usuario'] ?>" class="form-control" placeholder="Ingrese su Usuario" data-validacion-tipo="requerido|min:8" />
-                    </div>
-                    <div class="form-group">
-                        <label>Contraseña</label>
-                        <input type="text" name="contrasena" value="<?php echo $value['contrasena'] ?>" class="form-control" placeholder="Ingrese su Contraseña" data-validacion-tipo="requerido|min:8" />
-                    </div>
-                    <input type="hidden" name="id" value="<?php echo $value['id'] ?>">
-                <?php endforeach ?>
-            <?php else : ?>
-                <p>No hay datos disponibles.</p>
-            <?php endif ?>
+        <form action="?m=guardar" method="POST">
+            <div class="form-group">
+                <label>Documento Identidad</label>
+                <input type="text" name="documento_identidad" class="form-control" placeholder="Ingrese su número de Identificación" data-validacion-tipo="requerido|min:3" />
+            </div>
+            <div class="form-group">
+                <label>Nombre</label>
+                <input type="text" name="nombre" class="form-control" placeholder="Ingrese su Nombre" data-validacion-tipo="requerido|min:7" />
+            </div>
+            <div class="form-group">
+                <label>Apellido</label>
+                <input type="text" name="apellido" class="form-control" placeholder="Ingrese sus Apellidos" data-validacion-tipo="requerido|date" />
+            </div>
+            <div class="form-group">
+                <label>Edad</label>
+                <input type="number" name="edad" class="form-control" placeholder="Ingrese su Edad" data-validacion-tipo="requerido|entero|min:1" min="1" />
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="text" name="email" class="form-control" placeholder="Ingrese su Email" data-validacion-tipo="requerido|min:8" />
+            </div>
+            <div class="form-group">
+                <label>Usuario</label>
+                <input type="text" name="usuario" class="form-control" placeholder="Ingrese su Usuario" data-validacion-tipo="requerido|min:8" />
+            </div>
+            <div class="form-group">
+               <label>Contraseña</label>
+                <input id="contrasena" type="password" name="contrasena" class="form-control" placeholder="Ingrese su Contraseña" data-validacion-tipo="requerido|min:8" />
+            </div>
+
+            <input type="hidden" name="id" value="">
             <hr />
             <div class="text-right">
                 <button type="submit" class="btn btn-success">Guardar</button>
